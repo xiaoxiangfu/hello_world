@@ -1,0 +1,18 @@
+fibonacci :: (Integral a) => a -> a
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n-1) + fibonacci (n-2)
+
+always_neg_one :: (Integral a) => a -> a
+always_neg_one n = -1
+
+fibonacci2 :: (Integral a) => Bool -> a -> a
+fibonacci2 True = fibonacci
+fibonacci2 False = always_neg_one
+
+judge :: (Integral a ) => a -> Bool
+judge n = n >= 0
+
+fibonacci3 :: ( Integral a ) => a -> a
+fibonacci3 n = fibonacci2 (judge n) n 
+main = print ( fibonacci3 (-3) )
